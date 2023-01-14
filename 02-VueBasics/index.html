@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <title>02-Vue Basics</title>
+</head>
+<body>
+  
+  <div id="app">
+    <h1 v-if="showTitle">{{title}}</h1>
+    <button @click="toggleTitle">
+      <span v-if="showTitle">Click to hide the title</span>
+      <span v-else>Click to show the title</span>
+    </button>
+
+    <h2 v-show="showSubTitle">This will be in the DOM</h2>
+    <button @click="toggleSubTitle">
+      <span v-if="showSubTitle">Click to hide the title</span>
+      <span v-else>Click to show the title</span>
+    </button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
