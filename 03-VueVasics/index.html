@@ -14,6 +14,11 @@
       margin: 20px;
       display: inline-block;
     }
+
+    .fav {
+      background: steelblue;
+      color: white;
+    }
   </style>
   <title>02-Vue Basics</title>
 </head>
@@ -36,9 +41,13 @@
 
     <button @click="toggleMovies">Toggle All Movies</button>
     <ul v-if="showMovies">
-      <li v-for="movie in movies">
+      <li v-for="movie in movies" :class="{fav: movie.isFavorite}">
         <h3>{{ movie.title }}</h3>
         <p>{{ movie.duration }}</p>
+        <button @click="toggleFavorite(movie)">
+          <span v-if="!movie.isFavorite">Add to favorites</span>
+          <span v-else>Remove from favorites</span>
+        </button>
       </li>
     </ul>
 
@@ -47,6 +56,16 @@
     <h2>Attribute Binding</h2>
     <a :href="url">test link</a>
     <!-- <a v-bind:href="url">test link</a> -->
+
+    <br>
+
+    <h2>Favorite Books: </h2>
+    <ul>
+      <li v-for="movie in filteredMovies">
+        <h3>{{ movie.title }}</h3>
+        <p>{{ movie.duration }}</p>
+      </li>
+    </ul>
 
   </div>
 

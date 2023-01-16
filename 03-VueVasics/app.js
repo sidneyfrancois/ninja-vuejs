@@ -7,9 +7,9 @@ const app = Vue.createApp({
       y: 0,
       showMovies: true,
       movies: [
-        { title: 'name of the first', duration: 234},
-        { title: 'name of the second', duration: 120},
-        { title: 'name of the third', duration: 60},
+        { title: 'name of the first', duration: 234, isFavorite: true},
+        { title: 'name of the second', duration: 120, isFavorite: false},
+        { title: 'name of the third', duration: 60, isFavorite: true},
       ],
       url: 'https://www.google.com/'
     }
@@ -30,6 +30,14 @@ const app = Vue.createApp({
     },
     toggleMovies() {
       this.showMovies = !this.showMovies
+    },
+    toggleFavorite(movie) {
+      movie.isFavorite = !movie.isFavorite
+    }
+  },
+  computed: {
+    filteredMovies() {
+      return this.movies.filter((movie) => movie.isFavorite)
     }
   }
 })
