@@ -5,6 +5,10 @@
   <h4>{{ duration }}</h4>
 
   <slot></slot>
+
+  <h2>Between the different slots</h2>
+
+  <slot name="texts"></slot>
 </template>
 <script>
 export default {

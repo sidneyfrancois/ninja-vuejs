@@ -15,6 +15,19 @@
   </div>
 
   <Third movieTitle="The movie" :duration="duration">
+    <template v-slot:texts>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum
+        assumenda obcaecati dolorum, quisquam sint ullam consectetur? Debitis
+        tenetur accusamus laudantium?
+      </p>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum
+        assumenda obcaecati dolorum, quisquam sint ullam consectetur? Debitis
+        tenetur accusamus laudantium?
+      </p>
+    </template>
+
     <button>This is from the slot</button>
   </Third>
 </template>
