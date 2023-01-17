@@ -1,20 +1,27 @@
 <template>
   <h2>{{ title }}</h2>
-  <Second />
+  <Second
+    text="Text from the App.vue as a prop"
+    secondText="Another text from the parent component"
+    :someArray="['element', 56]"
+    :subTitle="secondTitle"
+    theme="dark"
+  />
 </template>
 
 <script>
-import Second from './components/Second.vue';
+import Second from "./components/Second.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: { Second },
   data() {
     return {
-      title: 'Title from the App.vue'
-    }
-  }
-}
+      title: "Title from the App.vue",
+      secondTitle: "Another title",
+    };
+  },
+};
 </script>
 
 <style>
