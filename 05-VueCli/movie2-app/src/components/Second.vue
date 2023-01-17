@@ -4,6 +4,7 @@
   <p>{{ secondText }}</p>
   <p>{{ someArray }}</p>
   <p>{{ subTitle }}</p>
+  <button @click="closeSecond">Hide Second Component</button>
 </template>
 
 <script>
@@ -15,6 +16,11 @@ export default {
     };
   },
   props: ["text", "secondText", "someArray", "subTitle", "theme"],
+  methods: {
+    closeSecond() {
+      this.$emit("close");
+    },
+  },
 };
 </script>
 

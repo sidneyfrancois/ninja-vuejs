@@ -1,12 +1,18 @@
 <template>
   <h2>{{ title }}</h2>
-  <Second
-    text="Text from the App.vue as a prop"
-    secondText="Another text from the parent component"
-    :someArray="['element', 56]"
-    :subTitle="secondTitle"
-    theme="dark"
-  />
+  <button @click="toggleSecond" v-if="!showSecond">
+    Show Second Component
+  </button>
+  <div v-if="showSecond">
+    <Second
+      text="Text from the App.vue as a prop"
+      secondText="Another text from the parent component"
+      :someArray="['element', 56]"
+      :subTitle="secondTitle"
+      theme="dark"
+      @close="toggleSecond"
+    />
+  </div>
 </template>
 
 <script>
@@ -19,7 +25,13 @@ export default {
     return {
       title: "Title from the App.vue",
       secondTitle: "Another title",
+      showSecond: false,
     };
+  },
+  methods: {
+    toggleSecond() {
+      this.showSecond = !this.showSecond;
+    },
   },
 };
 </script>
