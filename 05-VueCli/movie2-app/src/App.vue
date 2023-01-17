@@ -13,19 +13,25 @@
       @close="toggleSecond"
     />
   </div>
+
+  <Third movieTitle="The movie" :duration="duration">
+    <button>This is from the slot</button>
+  </Third>
 </template>
 
 <script>
 import Second from "./components/Second.vue";
+import Third from "./components/Third.vue";
 
 export default {
   name: "App",
-  components: { Second },
+  components: { Second, Third },
   data() {
     return {
       title: "Title from the App.vue",
       secondTitle: "Another title",
       showSecond: false,
+      duration: 123,
     };
   },
   methods: {
